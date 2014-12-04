@@ -9,11 +9,11 @@ if [ ! -f /plexconnect/trailers.cer ]; then
     && cat /plexconnect/trailers.key >> /plexconnect/trailers.pem
 fi
 
+cd /opt/PlexConnect
+
 if [ ! -f /plexconnect/ATVSettings.cfg ]; then
   ln -s /plexconnect/ATVSettings.cfg
 fi
-
-cd /opt/PlexConnect
 
 cp /plexconnect/trailers.* assets/certificates/
 
