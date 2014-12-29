@@ -3,7 +3,12 @@ MAINTAINER Alex Varju
 
 RUN apt-get update && apt-get install -y git python && apt-get clean
 
-RUN cd /opt && git clone https://github.com/iBaa/PlexConnect.git
+ENV VERSION ee2dab7
+
+RUN cd /opt \
+  && git clone https://github.com/iBaa/PlexConnect.git \
+  && cd PlexConnect \
+  && git reset --hard $VERSION
 
 # persistent storage for ssl certificates
 VOLUME /plexconnect
