@@ -11,7 +11,7 @@ fi
 
 cd /opt/PlexConnect
 
-if [ ! -f /plexconnect/ATVSettings.cfg ]; then
+if [ ! -f ATVSettings.cfg ]; then
   ln -s /plexconnect/ATVSettings.cfg
 fi
 
