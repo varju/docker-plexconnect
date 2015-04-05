@@ -3,7 +3,7 @@ MAINTAINER Alex Varju
 
 RUN apt-get update && apt-get install -y git python && apt-get clean
 
-ENV VERSION c529a8f
+ENV VERSION e6e032a
 
 RUN cd /opt \
   && git clone https://github.com/iBaa/PlexConnect.git \
