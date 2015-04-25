@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
+
+cd /opt/PlexConnect
+
+COMMIT_URL=https://github.com/iBaa/PlexConnect/commit/$(git rev-parse HEAD)
+echo
+echo "PlexConnect build ${COMMIT_URL}"
+echo
 
 if [ ! -f /plexconnect/trailers.cer ]; then
   echo "Generating SSL certificate"
@@ -8,8 +15,6 @@ if [ ! -f /plexconnect/trailers.cer ]; then
   openssl x509 -in /plexconnect/trailers.pem -outform der -out /plexconnect/trailers.cer \
     && cat /plexconnect/trailers.key >> /plexconnect/trailers.pem
 fi
-
-cd /opt/PlexConnect
 
 if [ ! -f ATVSettings.cfg ]; then
   ln -s /plexconnect/ATVSettings.cfg
