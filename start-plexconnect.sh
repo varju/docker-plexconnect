@@ -32,7 +32,5 @@ echo
 
 touch PlexConnect.log
 
-git apply /opt/ip-self-external.patch
-
 ./PlexConnect.py &
 tail -f PlexConnect.log
