@@ -1,10 +1,10 @@
-FROM debian:jessie
+FROM alpine:latest
 MAINTAINER Alex Varju
 
-RUN apt-get update \
-  && apt-get install -y git python \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk add --update \
+    git \
+    python \
+  && rm -rf /var/cache/apk/*
 
 COPY start-plexconnect.sh ip-self-external.patch /opt/
 
