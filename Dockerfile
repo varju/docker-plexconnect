@@ -1,12 +1,9 @@
-FROM debian:jessie
-MAINTAINER Alex Varju
+FROM alpine:3.7
+LABEL maintainer="Alex Varju"
 
-RUN apt-get update \
-  && apt-get install -y git python \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache git python sed
 
-RUN cd /opt && git clone https://github.com/iBaa/PlexConnect.git
+RUN mkdir /opt && cd /opt && git clone https://github.com/iBaa/PlexConnect.git
 
 COPY start-plexconnect.sh /opt/
 
