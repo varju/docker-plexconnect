@@ -22,6 +22,14 @@ fi
 
 cp /plexconnect/trailers.* assets/certificates/
 
+# Migrate from legacy setting
+if [ -n "$PLEXCONNECT_IP_PLEXCONNECT_EXTERNAL" ]; then
+  echo "PLEXCONNECT_IP_PLEXCONNECT_EXTERNAL is deprecated, use PLEXCONNECT_USE_CUSTOM_DNS_BIND_IP and PLEXCONNECT_CUSTOM_DNS_BIND_IP"
+  export PLEXCONNECT_USE_CUSTOM_DNS_BIND_IP=True
+  export PLEXCONNECT_CUSTOM_DNS_BIND_IP=$PLEXCONNECT_IP_PLEXCONNECT_EXTERNAL
+  unset PLEXCONNECT_IP_PLEXCONNECT_EXTERNAL
+fi
+
 echo [PlexConnect] > Settings.cfg
 env | grep ^PLEXCONNECT_ | sed -E -e 's/^PLEXCONNECT_//' -e 's/(.*)=/\L\1 = /' >> Settings.cfg
 

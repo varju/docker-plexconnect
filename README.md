@@ -9,9 +9,11 @@ docker run -d \
   -v /data/plexconnect:/plexconnect \
   -e PLEXCONNECT_ENABLE_PLEXGDM=False \
   -e PLEXCONNECT_IP_PMS=192.168.1.2 \
-  -e PLEXCONNECT_IP_PLEXCONNECT_EXTERNAL=192.168.1.11 \
+  -e PLEXCONNECT_USE_CUSTOM_DNS_BIND_IP=True \
+  -e PLEXCONNECT_CUSTOM_DNS_BIND_IP=192.168.1.11 \
   varju/plexconnect
 ```
+
 
 Environment tunables
 --------------------
@@ -20,6 +22,8 @@ Environment tunables
 - `PLEXCONNECT_IP_PMS` (default: 192.168.178.10)
 - `PLEXCONNECT_PORT_PMS` (default: 32400)
 - `PLEXCONNECT_IP_DNSMASTER` (default: 8.8.8.8)
+- `PLEXCONNECT_USE_CUSTOM_DNS_BIND_IP` (default: False)
+- `PLEXCONNECT_CUSTOM_DNS_BIND_IP` (default: unset)
 - `PLEXCONNECT_PREVENT_ATV_UPDATE` (default: True)
 - `PLEXCONNECT_HOSTTOINTERCEPT` (default: trailers.apple.com)
 - `PLEXCONNECT_LOGLEVEL` (default: Normal)
